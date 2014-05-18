@@ -56,7 +56,7 @@ function Main(teams, rounds, teamsPerDebate, breakingTeams, currentRound){
 	for(l = 0; l < tabs.length; l++){
 		output += "" + padPrint(tabs[tabs.length - 1 - l]) + " team(s) on " + padPrint(tabs.length - 1 -l) + " points \n";
 	}
-	document.getElementById('outputText').value += output;
+	document.getElementById('outputText').value = output + document.getElementById('outputText').value;
 }
 
 function padPrint(valueIn){
