@@ -1,0 +1,17 @@
+<html>
+<head>
+<script src ="backTab.js" type = 'text/javascript'></script>
+</head>
+<body>
+<form>
+Teams<input type = "text" id="teams"></br>
+Rounds<input type = "text" id = "rounds"></br>
+Teams per debate<input type = "text" id = "teamsPerDebate"></br>
+Breaking Teams<input type = "text" id = "breakingTeams"></br>
+Rounds Finished<input type = "text" id = "currentRound"></br>
+<input type = "Button" Value = "Submit" OnClick = "Main(parseInt(document.getElementById('teams').value), parseInt(document.getElementById('rounds').value), parseInt(document.getElementById('teamsPerDebate').value), parseInt(document.getElementById('breakingTeams').value), parseInt(document.getElementById('currentRound').value) ) "></br>
+<textarea id = outputText readonly cols = "55" rows = "20" style = "width:400; height: 65%;"></textarea>
+
+</form>
+</body>
+</html>
