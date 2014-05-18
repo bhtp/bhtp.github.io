@@ -47,7 +47,7 @@ function Main(teams, rounds, teamsPerDebate, breakingTeams, currentRound){
 	}
 	output += "-----------------Breaking------------------ \n";
 	for(n = 0; n < points; n++){
-		output += "All " + padPrint(tabs[tabs.length - 1 - n]) + " team(s) break on " + padPrint((tabs.length - n - 1)) + " points\n";
+		output += "All (" + padPrint(tabs[tabs.length - 1 - n]) + ") team(s) break on " + padPrint((tabs.length - n - 1)) + " points\n";
 	}
 	if(leftOver !=0){
 		output += padPrint(leftOver) + " team(s) of " + padPrint(tabs[tabs.length - points - 1]) + " break on " + padPrint((tabs.length - points - 1)) +  " points (" + Math.round((leftOver / tabs[tabs.length - points - 1] * 100)) + "%)\n";
