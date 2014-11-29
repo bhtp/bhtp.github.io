@@ -1,4 +1,4 @@
-function Main(teams, rounds, teamsPerDebate, breakingTeams, currentRound){
+function Main(teams, rounds, teamsPerDebate, breakingTeams, currentRound, directEntry){
 	var i;
 	var j;
 	var k;
@@ -6,13 +6,28 @@ function Main(teams, rounds, teamsPerDebate, breakingTeams, currentRound){
 	var n;
 	var l;
 	var h;
-	var tabs = new Array(1);
+	startPlace = 0;
+	
 	var now = new Date();
 	var output = "                  " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds()+"\n";
-	tabs[0] = teams;
-	for(i = 0; i < rounds; i++){
-		if (i == currentRound){
-			output += "--------------Curent Round---------------- \n";
+	if(directEntry == true)
+	{
+		numberDirectEntry = (teamsPerDebate - 1)*currentRound;
+		var tabs = new Array(numberDirectEntry + 1);
+		for(i = 0; i <= numberDirectEntry; i++)
+		{
+			tabs[i] = parseInt(document.getElementById("entry" + i).value);
+		}
+		startPlace = currentRound;
+	}
+	else
+	{
+		var tabs = new Array(1);
+		tabs[0] = teams;
+	}
+	for(i = startPlace; i < rounds; i++){
+		if (i == currentRound && (!(directEntry))){
+			output += "--------------Curent Round Theoretical-- \n";
 			for(h = 0; h < tabs.length; h++){
 				output += "" + padPrint(tabs[tabs.length - 1 - h]) + " team(s) on " + padPrint(tabs.length - 1 -h) + " points \n";
 			}
@@ -57,6 +72,22 @@ function Main(teams, rounds, teamsPerDebate, breakingTeams, currentRound){
 		output += "" + padPrint(tabs[tabs.length - 1 - l]) + " team(s) on " + padPrint(tabs.length - 1 -l) + " points \n";
 	}
 	document.getElementById('outputText').value = output + document.getElementById('outputText').value;
+}
+
+function addInputs(number, teamsPerDebate, div)
+{
+	highestPoints = number * (teamsPerDebate - 1);
+	div.innerHTML = "";
+	for(i = 0; i <= highestPoints; i++)
+	{
+		addDiv = document.createElement("div")
+		addDiv.innerHTML += i + " points ";
+		newInput = document.createElement("input");
+		newInput.type = "text";
+		newInput.id = "entry" + i;
+		addDiv.appendChild(newInput);
+		div.appendChild(addDiv);
+	}
 }
 
 function padPrint(valueIn){
