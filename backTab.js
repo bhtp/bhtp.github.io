@@ -40,6 +40,8 @@ function Main(teams, rounds, teamsPerDebate, breakingTeams, currentRound, direct
 					}
 				}
 			}
+			
+			
 			output += "--------------Curent Round Theoretical-- \n";
 			for(h = 0; h < tabs.length; h++){
 				output += "" + padPrint(tabs[tabs.length - 1 - h]) + " team(s) on " + padPrint(tabs.length - 1 -h) + " points \n";
@@ -91,15 +93,19 @@ function addInputs(number, teamsPerDebate, div)
 {
 	highestPoints = number * (teamsPerDebate - 1);
 	div.innerHTML = "";
+	even = Math.round(highestPoints/2) == (highestPoints/2);
 	for(i = 0; i <= highestPoints; i++)
 	{
-		addDiv = document.createElement("div")
-		addDiv.innerHTML += i + " points ";
-		newInput = document.createElement("input");
-		newInput.type = "text";
-		newInput.id = "entry" + i;
-		addDiv.appendChild(newInput);
-		div.appendChild(addDiv);
+			addDiv = document.createElement("div")
+			addDiv.innerHTML += i + " points ";
+			if(!((even && i == highestPoints/2) || (!even && (Math.abs(i - highestPoints/2)<1))))
+			{
+				newInput = document.createElement("input");
+				newInput.type = "text";
+				newInput.id = "entry" + i;
+				addDiv.appendChild(newInput);
+			}
+			div.appendChild(addDiv);
 	}
 }
 
