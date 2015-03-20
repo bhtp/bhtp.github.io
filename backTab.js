@@ -10,23 +10,33 @@ function Main(teams, rounds, teamsPerDebate, breakingTeams, currentRound, direct
 	
 	var now = new Date();
 	var output = "                  " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds()+"\n";
-	if(directEntry == true)
-	{
-		numberDirectEntry = (teamsPerDebate - 1)*currentRound;
-		var tabs = new Array(numberDirectEntry + 1);
-		for(i = 0; i <= numberDirectEntry; i++)
-		{
-			tabs[i] = parseInt(document.getElementById("entry" + i).value);
-		}
-		startPlace = currentRound;
-	}
-	else
-	{
-		var tabs = new Array(1);
-		tabs[0] = teams;
-	}
+	
+	var tabs = new Array(1);
+	tabs[0] = teams;
 	for(i = startPlace; i < rounds; i++){
-		if (i == currentRound && (!(directEntry))){
+		if (i == currentRound){
+			if(directEntry == true)
+			{
+				numberDirectEntry = (teamsPerDebate - 1)*currentRound;
+				for(f = 0; f <= numberDirectEntry; f++)
+				{
+					if(document.getElementById("entry" + f).value != "")
+					{
+						actualValue = parseInt(document.getElementById("entry" + f).value);
+						difference = tabs[f] - actualValue;
+						tabs[f] = actualValue;
+						
+						if(f<tabs.length/2)
+						{
+							tabs[f+1]+=difference;
+						}
+						else if(f>tabs.length/2)
+						{
+							tabs[f-1]+=difference;
+						}
+					}
+				}
+			}
 			output += "--------------Curent Round Theoretical-- \n";
 			for(h = 0; h < tabs.length; h++){
 				output += "" + padPrint(tabs[tabs.length - 1 - h]) + " team(s) on " + padPrint(tabs.length - 1 -h) + " points \n";
