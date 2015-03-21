@@ -31,7 +31,7 @@ function Main(teams, rounds, teamsPerDebate, breakingTeams, currentRound, direct
 				
 				for(f = numberDirectEntry; f > numberDirectEntry / 2; f--)
 				{
-					if(document.getElementById("entry" + f).value != "")
+					if(document.getElementById("entry" + f) != null && document.getElementById("entry" + f).value != "")
 					{
 						actualValue = parseInt(document.getElementById("entry" + f).value);
 						difference = tabs[f] - actualValue;
