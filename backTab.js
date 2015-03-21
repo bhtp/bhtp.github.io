@@ -20,7 +20,7 @@ function Main(teams, rounds, teamsPerDebate, breakingTeams, currentRound, direct
 				numberDirectEntry = (teamsPerDebate - 1)*currentRound;
 				for(f = 0; f < numberDirectEntry / 2; f++)
 				{
-					if(document.getElementById("entry" + f).value != "")
+					if(document.getElementById("entry" + f) != null && document.getElementById("entry" + f).value != "")
 					{
 						actualValue = parseInt(document.getElementById("entry" + f).value);
 						difference = tabs[f] - actualValue;
