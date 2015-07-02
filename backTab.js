@@ -39,6 +39,13 @@ function Main(teams, rounds, teamsPerDebate, breakingTeams, currentRound, direct
 						difference = tabs[f] - actualValue;
 						tabs[f] = actualValue;
 						tabs[f-1]+=difference;
+						r = f - 1;
+						while(tabs[r] < 0)
+						{
+							tabs[r-1]+=tabs[r];
+							tabs[r] = 0;
+							r--;
+						}
 					}
 				}
 			}
