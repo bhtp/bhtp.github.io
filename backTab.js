@@ -1,3 +1,5 @@
+var directEntryOpen = false;
+
 function Main(teams, rounds, teamsPerDebate, breakingTeams, currentRound, directEntry){
 	var i;
 	var j;
@@ -92,21 +94,42 @@ function Main(teams, rounds, teamsPerDebate, breakingTeams, currentRound, direct
 function addInputs(number, teamsPerDebate, div)
 {
 	highestPoints = number * (teamsPerDebate - 1);
-	div.innerHTML = "Number of teams on points";
+	div.innerHTML = "<h4>Number of teams on points</h4>";
 	even = Math.round(highestPoints/2) == (highestPoints/2);
 	for(i = 0; i <= highestPoints; i++)
 	{
-			addDiv = document.createElement("div")
-			addDiv.innerHTML += i + " points ";
+			
 			if(!((even && i == highestPoints/2) || (!even && (Math.abs(i - highestPoints/2)<1))))
 			{
+				addDiv = document.createElement("div")
+				addDiv.innerHTML += '<label for=entry"' + i + '">' + i + ' Points</label>';
 				newInput = document.createElement("input");
 				newInput.type = "text";
 				newInput.id = "entry" + i;
+				newInput.className = "form-control"
 				addDiv.appendChild(newInput);
 			}
 			div.appendChild(addDiv);
 	}
+}
+
+function mainRunner()
+{
+	Main(parseInt(document.getElementById('teams').value), parseInt(document.getElementById('rounds').value), parseInt(document.getElementById('teamsPerDebate').value), parseInt(document.getElementById('breakingTeams').value), parseInt(document.getElementById('currentRound').value), directEntryOpen)
+}
+
+function directEntryOpener()
+{
+	directEntryOpen = !directEntryOpen;
+	if(directEntryOpen){
+		document.getElementById('directEntryArea').style.display = '';
+		document.getElementById('directEntry').className = 'btn btn-md btn-info active';
+	}
+	else{
+		document.getElementById('directEntryArea').style.display = 'none';
+		document.getElementById('directEntry').className = 'btn btn-md btn-info';
+	} 
+	 addInputs(parseInt(document.getElementById('currentRound').value), parseInt(document.getElementById('teamsPerDebate').value),  document.getElementById('contentEntryDiv'));
 }
 
 function padPrint(valueIn){
