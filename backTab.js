@@ -136,6 +136,13 @@ function mainRunner()
 	Main(parseInt(document.getElementById('teams').value), parseInt(document.getElementById('rounds').value), parseInt(document.getElementById('teamsPerDebate').value), parseInt(document.getElementById('breakingTeams').value), parseInt(document.getElementById('currentRound').value), directEntryOpen)
 }
 
+function textToggle()
+{
+	if(directEntryOpen){
+	addInputs(parseInt(document.getElementById('currentRound').value), parseInt(document.getElementById('teamsPerDebate').value),  document.getElementById('contentEntryDiv'));
+	}
+}
+
 function directEntryOpener()
 {
 	directEntryOpen = !directEntryOpen;
