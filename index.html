@@ -23,38 +23,54 @@
 </div>
 
 <form>
-<div class="col-md-offset-1 col-md-10 form-group">
+<div class = "row">
+<div class="col-md-offset-1 col-md-3 form-group">
 <label for="teams">Total Number of Teams</label>
 <input type="text" class="form-control" id="teams" placeholder="# of Teams">
 </div>
-<div class="col-md-offset-1 col-md-10 form-group">
-<label for="round">Number of Round</label>
+</div>
+<div class = "row">
+<div class="col-md-offset-1 col-md-3 form-group">
+<label for="round">Number of Rounds</label>
 <input type = "text" class="form-control" id = "rounds" placeholder="# of Rounds">
 </div>
-<div class="col-md-offset-1 col-md-10 form-group">
+</div>
+<div class = "row">
+<div class="col-md-offset-1 col-md-3 form-group">
 <label for="teamsPerDebate">Number of Teams per Debate</label>
 <input type = "text" class="form-control" id = "teamsPerDebate" placeholder="Teams/Debate">
 </div>
-<div class="col-md-offset-1 col-md-10 form-group">
+</div>
+<div class = "row">
+<div class="col-md-offset-1 col-md-3 form-group">
 <label for="breakingTeams">Number of Breaking Teams</label>
 <input type = "text" class="form-control" id = "breakingTeams" placeholder="# of Breaking Teams">
 </div>
-<div class="col-md-offset-1 col-md-10 form-group">
+</div>
+<div class = "row">
+<div class="col-md-offset-1 col-md-3 form-group">
 <label for="currentRound">Number of Rounds Finished (Optional)</label>
 <input type = "text" id = "currentRound" class="form-control" placeholder="# of Rounds Finished">
 </div>
-<div class="form-group col-md-offset-1 col-md-10">
+</div>
+<div class = "row">
+<div class="form-group col-md-offset-1 col-md-3">
 <input type = "button" id = "directEntry" onclick="directEntryOpener()" class="btn btn-md btn-info" value="Known Info Entry (Optional)">
 </div>
-<div id = "directEntryArea" class="col-md-offset-1 col-md-10 form-group">
+</div>
+<div class = "row">
+<div id = "directEntryArea" class="col-md-offset-1 col-md-3 form-group">
 <div id = "contentEntryDiv">
 </div>
 </div>
-<div class="form-group col-md-offset-1 col-md-10">
+</div>
+<div class = "row">
+<div class="form-group col-md-offset-1 col-md-3">
 <input type = "Button" class="btn btn-primary"	 Value = "Backtab" OnClick = "mainRunner()">
 <input type = "Button" class = "btn btn-danger" Value = "Clear Log" OnClick = "document.getElementById('outputText').value = '';">
 </div>
-<div class="form-group col-md-offset-1 col-md-10">
+</div>
+<div>
 <textarea id = outputText class="form-control" readonly cols = "55" rows = "20" style = "width:100%; height: 65%;"></textarea>
 </div>
 </form>
