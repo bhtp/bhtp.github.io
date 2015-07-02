@@ -102,7 +102,12 @@ function addInputs(number, teamsPerDebate, div)
 {
 	highestPoints = number * (teamsPerDebate - 1);
 	div.innerHTML = "<h4>Number of teams on points</h4>";
-	var displayNum = 5;
+	var displayNum = highestPoints / 3;
+	if(displayNum < 5)
+	{
+		displayNum = 5;
+	}
+	
 	if(highestPoints > displayNum * 2)
 	{
 		mid = highestPoints - displayNum;
