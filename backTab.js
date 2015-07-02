@@ -95,20 +95,26 @@ function addInputs(number, teamsPerDebate, div)
 {
 	highestPoints = number * (teamsPerDebate - 1);
 	div.innerHTML = "<h4>Number of teams on points</h4>";
-	even = Math.round(highestPoints/2) == (highestPoints/2);
-	for(i = 0; i <= highestPoints; i++)
+	var displayNum = 5;
+	if(highestPoints > displayNum * 2)
+	{
+		mid = highestPoints - displayNum;
+	}
+	else
+	{
+		mid = (highestPoints + 1) / 2;
+	}
+	
+	for(i = highestPoints; i > mid ; i--)
 	{
 			
-			if(!((even && i == highestPoints/2) || (!even && (Math.abs(i - highestPoints/2)<1))))
-			{
-				addDiv = document.createElement("div")
-				addDiv.innerHTML += '<label for=entry"' + i + '">' + i + ' Points</label>';
-				newInput = document.createElement("input");
-				newInput.type = "text";
-				newInput.id = "entry" + i;
-				newInput.className = "form-control"
-				addDiv.appendChild(newInput);
-			}
+			addDiv = document.createElement("div")
+			addDiv.innerHTML += '<label for=entry"' + i + '">' + i + ' Points</label>';
+			newInput = document.createElement("input");
+			newInput.type = "text";
+			newInput.id = "entry" + i;
+			newInput.className = "form-control"
+			addDiv.appendChild(newInput);
 			div.appendChild(addDiv);
 	}
 }
@@ -124,12 +130,12 @@ function directEntryOpener()
 	if(directEntryOpen){
 		document.getElementById('directEntryArea').style.display = '';
 		document.getElementById('directEntry').className = 'btn btn-md btn-info active';
+		addInputs(parseInt(document.getElementById('currentRound').value), parseInt(document.getElementById('teamsPerDebate').value),  document.getElementById('contentEntryDiv'));
 	}
 	else{
 		document.getElementById('directEntryArea').style.display = 'none';
 		document.getElementById('directEntry').className = 'btn btn-md btn-info';
 	} 
-	 addInputs(parseInt(document.getElementById('currentRound').value), parseInt(document.getElementById('teamsPerDebate').value),  document.getElementById('contentEntryDiv'));
 }
 
 function padPrint(valueIn){
