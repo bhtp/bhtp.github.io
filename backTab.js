@@ -100,6 +100,8 @@ function Main(teams, rounds, teamsPerDebate, breakingTeams, currentRound, direct
 
 function addInputs(number, teamsPerDebate, div)
 {
+	if(isNaN(teamsPerDebate) || isNaN(number))
+		return
 	highestPoints = number * (teamsPerDebate - 1);
 	div.innerHTML = "<h4>Number of teams on points</h4>";
 	var displayNum = highestPoints / 3;
@@ -129,6 +131,7 @@ function addInputs(number, teamsPerDebate, div)
 			addDiv.appendChild(newInput);
 			div.appendChild(addDiv);
 	}
+	div.innerHTML += '<input type = "Button" class = "btn btn-warning btn-xs" Value = "Hide" OnClick = "directEntryOpener()">'
 }
 
 function mainRunner()
