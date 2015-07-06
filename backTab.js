@@ -157,8 +157,8 @@ function textToggle()
 
 function directEntryOpener()
 {
-	directEntryOpen = !directEntryOpen;
-	if(directEntryOpen){
+	
+	if(!directEntryOpen){
 		addInputs(checkField('currentRound', false), checkField('teamsPerDebate', false),  document.getElementById('contentEntryDiv'));
 		if(errorRaised)
 		{
@@ -172,6 +172,7 @@ function directEntryOpener()
 		document.getElementById('directEntryArea').style.display = 'none';
 		document.getElementById('directEntry').className = 'btn btn-md btn-info';
 	} 
+	directEntryOpen = !directEntryOpen;
 }
 
 function padPrint(valueIn){
