@@ -159,9 +159,14 @@ function directEntryOpener()
 {
 	directEntryOpen = !directEntryOpen;
 	if(directEntryOpen){
+		addInputs(checkField('currentRound', false), checkField('teamsPerDebate', false),  document.getElementById('contentEntryDiv'));
+		if(errorRaised)
+		{
+			errorRaised = false;
+			return;
+		}
 		document.getElementById('directEntryArea').style.display = '';
 		document.getElementById('directEntry').className = 'btn btn-md btn-info active';
-		addInputs(checkField('currentRound', false), checkField('teamsPerDebate', false),  document.getElementById('contentEntryDiv'));
 	}
 	else{
 		document.getElementById('directEntryArea').style.display = 'none';
