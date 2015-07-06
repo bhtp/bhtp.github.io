@@ -1,6 +1,12 @@
 var directEntryOpen = false;
+var errorRaised = false;
 
 function Main(teams, rounds, teamsPerDebate, breakingTeams, currentRound, directEntry){
+	if(errorRaised)
+	{
+		errorRaised = false;
+		return;
+	}
 	var i;
 	var j;
 	var k;
@@ -100,8 +106,11 @@ function Main(teams, rounds, teamsPerDebate, breakingTeams, currentRound, direct
 
 function addInputs(number, teamsPerDebate, div)
 {
-	if(isNaN(teamsPerDebate) || isNaN(number))
-		return
+	if(errorRaised)
+	{
+		errorRaised = false;
+		return;
+	}
 	highestPoints = number * (teamsPerDebate - 1);
 	div.innerHTML = "<h4>Number of teams on points</h4>";
 	var displayNum = highestPoints / 3;
@@ -136,13 +145,13 @@ function addInputs(number, teamsPerDebate, div)
 
 function mainRunner()
 {
-	Main(parseInt(document.getElementById('teams').value), parseInt(document.getElementById('rounds').value), parseInt(document.getElementById('teamsPerDebate').value), parseInt(document.getElementById('breakingTeams').value), parseInt(document.getElementById('currentRound').value), directEntryOpen)
+	Main(checkField('teams', false), checkField('rounds', false), checkField('teamsPerDebate', false), checkField('breakingTeams', false), checkField('currentRound', true), directEntryOpen)
 }
 
 function textToggle()
 {
 	if(directEntryOpen){
-	addInputs(parseInt(document.getElementById('currentRound').value), parseInt(document.getElementById('teamsPerDebate').value),  document.getElementById('contentEntryDiv'));
+	addInputs(checkField('currentRound', false), checkField('teamsPerDebate', false),  document.getElementById('contentEntryDiv'));
 	}
 }
 
@@ -171,4 +180,19 @@ function padPrint(valueIn){
 		longer += " ";
 	}
 	return longer
+}
+
+function checkField(id, optional)
+{
+	element = document.getElementById(id)
+	num = parseInt(element.value);
+	
+	if(isNaN(num) && !optional || num < 1)
+	{
+		element.style.backgroundColor = "#FF7373";
+		errorRaised = true;
+		return false;
+	}
+	element.style.backgroundColor = "#FFFFFF";
+	return num;
 }
