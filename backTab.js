@@ -161,7 +161,7 @@ function directEntryOpener()
 	if(directEntryOpen){
 		document.getElementById('directEntryArea').style.display = '';
 		document.getElementById('directEntry').className = 'btn btn-md btn-info active';
-		addInputs(parseInt(document.getElementById('currentRound').value), parseInt(document.getElementById('teamsPerDebate').value),  document.getElementById('contentEntryDiv'));
+		addInputs(checkField('currentRound', false), checkField('teamsPerDebate', false),  document.getElementById('contentEntryDiv'));
 	}
 	else{
 		document.getElementById('directEntryArea').style.display = 'none';
