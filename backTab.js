@@ -1,3 +1,5 @@
+//Don't judge me because of this, I know the code is bad
+
 var directEntryOpen = false;
 var errorRaised = false;
 window.onload = load;
