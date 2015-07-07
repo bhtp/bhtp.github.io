@@ -27,36 +27,36 @@
 <div class = "row">
 <div class="col-xs-offset-1 col-xs-10 form-group">
 <label for="teams">Total Number of Teams</label>
-<input type="text" class="form-control input-lg" id="teams" placeholder="# of Teams">
+<input type="number" min="1" class="form-control input-lg" id="teams" placeholder="# of Teams">
 </div>
 </div>
 <div class = "row">
 <div class="col-xs-offset-1 col-xs-10 form-group">
 <label for="round">Number of Rounds</label>
-<input type = "text" class="form-control input-lg" id = "rounds" placeholder="# of Rounds">
+<input type = "number" min="1" class="form-control input-lg" id = "rounds" placeholder="# of Rounds">
 </div>
 </div>
 <div class = "row">
 <div class="col-xs-offset-1 col-xs-10 form-group">
 <label for="teamsPerDebate">Number of Teams per Debate</label>
-<input type = "text" class="form-control input-lg" onChange="textToggle()" id = "teamsPerDebate" placeholder="Teams/Debate">
+<input type = "number" min="1" class="form-control input-lg" onChange="textToggle()" id = "teamsPerDebate" placeholder="Teams/Debate">
 </div>
 </div>
 <div class = "row">
 <div class="col-xs-offset-1 col-xs-10 form-group">
 <label for="breakingTeams">Number of Breaking Teams</label>
-<input type = "text" class="form-control input-lg" id = "breakingTeams" placeholder="# of Breaking Teams">
+<input type = "number" min="1" class="form-control input-lg" id = "breakingTeams" placeholder="# of Breaking Teams">
 </div>
 </div>
 <div class = "row">
 <div class="col-xs-offset-1 col-xs-10 form-group">
 <label for="currentRound">Number of Rounds Finished (Optional)</label>
-<input type = "text" id = "currentRound" onChange="textToggle()" class="form-control input-lg" placeholder="# of Rounds Finished">
+<input type = "number" min="1" id = "currentRound" onChange="textToggle()" class="form-control input-lg" placeholder="# of Rounds Finished">
 </div>
 </div>
 <div class = "row">
 <div class="form-group col-xs-offset-1 col-xs-10">
-<input type = "button" id = "directEntry" onclick="directEntryOpener()" class="btn btn-md btn-info" value="Known Info Entry (Optional)">
+<input type = "button"	 id = "directEntry" onclick="directEntryOpener()" class="btn btn-md btn-info" value="Known Info Entry (Optional)">
 </div>
 </div>
 <div class = "row">

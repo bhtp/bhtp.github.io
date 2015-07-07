@@ -134,7 +134,8 @@ function addInputs(number, teamsPerDebate, div)
 			addDiv = document.createElement("div")
 			addDiv.innerHTML += '<label for=entry"' + i + '">' + i + ' Points</label>';
 			newInput = document.createElement("input");
-			newInput.type = "text";
+			newInput.type = "number";
+			newInput.min = "0"
 			newInput.id = "entry" + i;
 			newInput.className = "form-control"
 			addDiv.appendChild(newInput);
