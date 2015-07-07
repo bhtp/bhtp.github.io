@@ -1,5 +1,7 @@
 var directEntryOpen = false;
 var errorRaised = false;
+window.onload = load;
+window.onresize = load;
 
 function Main(teams, rounds, teamsPerDebate, breakingTeams, currentRound, directEntry){
 	if(errorRaised)
@@ -202,4 +204,9 @@ function checkField(id, optional)
 	}
 	element.style.backgroundColor = "#FFFFFF";
 	return num;
+}
+
+function load()
+{
+	document.getElementById('outputText').style.height = window.innerHeight * 0.65;
 }
